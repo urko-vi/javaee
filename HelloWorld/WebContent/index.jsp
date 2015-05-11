@@ -7,7 +7,14 @@
 <title>Hello World</title>
 </head>
 <body>
-<% out.println("Hola Mundo"); %>
+<% 
+int n = 6;
+for(int i = 1 ; i < n; i++){
+	out.println("<h"+i+">Hola Mundo</h"+i+">"); 
+}
+
+
+%>
 
 </body>
 </html>
