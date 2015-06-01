@@ -42,11 +42,11 @@ public class MySqlConnection implements IConnection {
 
     @Override
     public void connect() throws ModelException {
-	// final String DRIVER = "com.mysql.jdbc.Driver";
+    	//final String DRIVER = "com.mysql.jdbc.Driver";
 	// System.out.println("Connecting to MySQL...");
 
 	try {
-	    // Class.forName(DRIVER);
+	     //Class.forName(DRIVER);
 	    if (connection == null) {
 		InitialContext ctx = new InitialContext();
 		DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
@@ -55,7 +55,7 @@ public class MySqlConnection implements IConnection {
 	    }
 	} catch (Exception e) {
 	    e.printStackTrace();
-	    System.out.println("LA CONEXIÓN A LA BD HA FALLADO");
+	    System.out.println("LA CONEXI�N A LA BD HA FALLADO");
 	    throw new ModelException("LA CONEXIÓN A LA BD HA FALLADO");
 	}
     }

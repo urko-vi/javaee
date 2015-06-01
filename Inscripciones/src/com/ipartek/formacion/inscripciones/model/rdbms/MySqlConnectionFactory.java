@@ -16,23 +16,23 @@ public class MySqlConnectionFactory extends DAOFactory implements
     // creador sincronizado para protegerse de posibles problemas multi-hilo
     // otra prueba para evitar instanciación múltiple
     private synchronized static void createInstance() {
-	if (INSTANCE == null) {
-	    INSTANCE = new MySqlConnectionFactory();
-	}
+		if (INSTANCE == null) {
+		    INSTANCE = new MySqlConnectionFactory();
+		}
     }
 
     public static MySqlConnectionFactory getInstance() {
-	if (INSTANCE == null) {
-	    createInstance();
-	}
-	return INSTANCE;
+		if (INSTANCE == null) {
+		    createInstance();
+		}
+		return INSTANCE;
     }
 
     @Override
     public IConnection getIConnection() throws ModelException {
 	// MySqlConnection mysqlCon = MySqlConnection.getInstance();
 	// mysqlCon.connect();
-	return MySqlConnection.getInstance();
+    	return MySqlConnection.getInstance();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class MySqlConnectionFactory extends DAOFactory implements
     @Override
     public IMatriculaDAO getIMatriculaDAO(final int whichFactory) {
 	// TODO Auto-generated method stub
-	return new MatriculaDAO(whichFactory);
+    	return new MatriculaDAO(whichFactory);
     }
 
 }

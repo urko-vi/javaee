@@ -9,20 +9,15 @@ public class Matricula {
     private String email;
     private long fUltimoAcceso;
     private long fUltimologin;
-
+    public static final int COD_MATRICULA_ID = -1;
+    
     public Matricula() {
-	super();
-	this.id = -1;
-	this.fInscripcion = -1;
-	this.nombre = "";
-	this.apellido = "";
-	this.email = "";
-	this.fUltimoAcceso = -1;
-	this.fUltimologin = -1;
+    	super();
+		this.id = Matricula.COD_MATRICULA_ID;
     }
 
     public int getId() {
-	return id;
+    	return id;
     }
 
     public void setId(final int id) {

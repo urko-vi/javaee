@@ -33,9 +33,9 @@ public class ServletRestConsulta extends HttpServlet {
      */
     @Override
     public void init(final ServletConfig config) throws ServletException {
-	super.init(config);
-	factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-	daoMaticula = factoria.getIMatriculaDAO(DAOFactory.MYSQL);
+		super.init(config);
+		factoria = DAOFactory.getDAOFactory(DAOFactory.ORACLE_ALUMNOS);
+		daoMaticula = factoria.getIMatriculaDAO(DAOFactory.ORACLE_ALUMNOS);
     }
 
     /**
@@ -53,7 +53,7 @@ public class ServletRestConsulta extends HttpServlet {
 	boolean error = true;
 	String sError = "Fallo del servidor";
 	PrintWriter out = response.getWriter();
-	ArrayList<Matricula> matriculas = null;
+	List<Matricula> matriculas = null;
 	Gson gson = new Gson();
 
 	try {
