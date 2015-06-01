@@ -25,7 +25,7 @@ public class PersonaServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-	// TODO Auto-generated method stub
+
 	super.init();
 	factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 	daoPersona = factoria.getIPersonaDAO(DAOFactory.MYSQL);
