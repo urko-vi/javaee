@@ -2,9 +2,11 @@ package com.ipartek.formacion.inscripciones.model.rdbms;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.ipartek.formacion.inscripciones.bean.Matricula;
 import com.ipartek.formacion.inscripciones.exception.ModelException;
@@ -20,8 +22,8 @@ public class MatriculaDAO implements IMatriculaDAO {
     public MatriculaDAO(final int whichFactory) {
 	try {
 	    con = DAOFactory.getDAOFactory(whichFactory).getIConnection();
-	    connection = con.getConnection();
-	    con.connect();
+	   connection = con.getConnection();
+	   con.connect();
 	    rs = null;
 	} catch (ModelException e) {
 	    // TODO Auto-generated catch block
@@ -36,14 +38,26 @@ public class MatriculaDAO implements IMatriculaDAO {
 	// TODO Auto-generated method stub
 	ArrayList<Matricula> matriculas = null;
 	CallableStatement cStmt = null;
+	PreparedStatement pStmt = null;
 	Matricula m = null;
+	//String sql ="SELECT * FROM "+TABLA;
 	try {
-	    cStmt = connection.prepareCall("{call getByYear(?)}");
+	    cStmt = connection.prepareCall("{call getByYear(?,?,?)}");
+	    //pStmt = connection.prepareStatement(sql);
 	    cStmt.setInt(1, year);
+	    cStmt.setInt(2, year);
+	    cStmt.setInt(3, year);
+
+	    rs= pStmt.executeQuery();
+	    
+	    
 	    rs = cStmt.executeQuery();
 	    matriculas = new ArrayList<Matricula>();
+	    HashMap<Integer, Matricula> mas = new HashMap<Integer, Matricula>();
 	    while (rs.next()) {
 		m = new Matricula();
+		
+
 		m.setId(rs.getInt(CAMPOS[0]));
 		m.setNombre(rs.getString(CAMPOS[1]));
 		m.setApellido(rs.getString(CAMPOS[2]));
@@ -52,6 +66,7 @@ public class MatriculaDAO implements IMatriculaDAO {
 		m.setfUltimoAcceso(rs.getLong(CAMPOS[5]));
 		m.setfInscripcion(rs.getLong(CAMPOS[6]));
 		matriculas.add(m);
+		mas.put(m.getId(), m);
 		// System.out.println(rs.g);
 	    }
 	} catch (SQLException e) {
@@ -61,4 +76,10 @@ public class MatriculaDAO implements IMatriculaDAO {
 
 	return matriculas;
     }
+
+	@Override
+	public Matricula getMatriculaById(int id) throws ModelException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
