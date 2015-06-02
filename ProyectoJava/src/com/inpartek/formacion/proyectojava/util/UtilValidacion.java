@@ -11,7 +11,7 @@ public final class UtilValidacion {
     private final static String DNI_PATTERN = "(\\d{1,8})([A-Z])";
     private final static String NUMBER_PATTERN = "^\\d+$";
     private final static String EMAIL_PATTERN = "^[\\w\\.=-]+@[\\w\\.-]+\\.[\\w]{2,3}$";
-
+    //System.getProperty("java.io.tmpdir");
     private UtilValidacion() {
     }
 

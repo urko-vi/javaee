@@ -2,6 +2,7 @@ package com.inpartek.formacion.proyectojava.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -66,6 +67,7 @@ public final class ManejadorFichero {
 		+ dato.getFileExt());
 	FileOutputStream fos = null;
 	Writer out = null;
+	   DataOutputStream salida = null;
 
 	if (!fichero.exists()) {
 	    try {
@@ -76,6 +78,8 @@ public final class ManejadorFichero {
 	}
 	try {
 	    fos = new FileOutputStream(fichero);
+        salida = new DataOutputStream(fos);
+      //  salida.wt(content);
 	    out = new OutputStreamWriter(fos, "UTF8");
 	    out.write(content);
 	} catch (FileNotFoundException e) {

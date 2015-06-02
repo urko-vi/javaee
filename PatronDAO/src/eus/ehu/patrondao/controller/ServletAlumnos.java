@@ -1,6 +1,7 @@
 package eus.ehu.patrondao.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -45,17 +46,27 @@ public class ServletAlumnos extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		// TODO Auto-generated method stub
 	    DAOFactory factoria = null;
 	    IAlumnoDAO daoAmlumno = null;
+		List<Alumno> alumnos = null;
 		factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL_ALUMNOS);
 		daoAmlumno = factoria.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);
-		List<Alumno> alumnos = daoAmlumno.getAll();
-		
-		for(Alumno al: alumnos){
-			System.out.println("Id:"+ al.getId() +" Nombre: "+al.getNombre() );
+
+		try {
+			alumnos = daoAmlumno.getAll();
+			for(Alumno al: alumnos){
+				System.out.println("Id:"+ al.getId() +" Nombre: "+al.getNombre() );
+			}
+		} catch (SQLException e){
+			e.printStackTrace();
 		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+
 	}
 
 }

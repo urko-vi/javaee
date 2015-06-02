@@ -9,6 +9,6 @@ public class ModelException extends Exception {
     }
 
     public ModelException(final String msg) {
-	super(msg);
+    	super(msg);
     }
 }

@@ -1,6 +1,7 @@
 package eus.ehu.patrondao.bean;
 
-import eus.ehu.patrondao.modelo.dbms.MySqlConnection;
+import eus.ehu.patrondao.exception.AlumnoException;
+
 
 public class Alumno {
 	public  static final int CODIGO_ALUMNO = -1;
@@ -28,11 +29,18 @@ public class Alumno {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		if(nombre.length() > 0){
+			this.nombre = nombre;
+		} else{
+			try {
+				throw new AlumnoException(AlumnoException.MSG_LONGITUD_TEXTO);
+			} catch (AlumnoException e) {
+				// TODO fichero de trazas
+				System.out.println(e.getMessage());
+			}
+		}
+		
 	}
-	
-	MySqlConnection sql = MySqlConnection.getInstance();
-	
 	
 	
 

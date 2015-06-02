@@ -15,6 +15,7 @@ import java.util.List;
 
 
 
+
 import eus.ehu.patrondao.bean.Alumno;
 import eus.ehu.patrondao.modelo.DAOFactory;
 import eus.ehu.patrondao.modelo.IAlumnoDAO;
@@ -48,40 +49,44 @@ public class AlumnoDAO implements IAlumnoDAO{
     
     
 	@Override
-	public Alumno getById(int id) {
+	public Alumno getById(int id)  {
 		Alumno al = null;
 		CallableStatement cStmt = null;
 		
-		try {
-			cStmt = conection.prepareCall("{call getById(?)}");
-			//cStmt = conection.prepareCall("{call getById(?,?)}"); PARA ORACLE
-			cStmt.setInt(1, id);
-			//cStmt.registerOutParameter(2, OracleTypes.CURSOR); PARA ORACLE
-			
-		   rs= cStmt.executeQuery(); //PARA SELECT
-		    //int i = cStmt.executeUpdate(); para UPDATE, INSERT; DELETE
-		    
-		    //rs = (ResultSet) callableStatement.getObject(2); PARA ORACLE
-		   
-		   
-		   al = new Alumno();
-		   al.setId(rs.getInt("cod_alumno"));
-		   al.setNombre(rs.getString("nombre_alumno"));
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			try {
+				cStmt = conection.prepareCall("{call getById(?)}");
+				//cStmt = conection.prepareCall("{call getById(?,?)}"); PARA ORACLE
+				cStmt.setInt(1, id);
+				//cStmt.registerOutParameter(2, OracleTypes.CURSOR); PARA ORACLE
+				
+			   rs= cStmt.executeQuery(); //PARA SELECT
+			    //int i = cStmt.executeUpdate(); para UPDATE, INSERT; DELETE
+			    
+			    //rs = (ResultSet) callableStatement.getObject(2); PARA ORACLE
+			   
+			   
+			   al = new Alumno();
+			   al.setId(rs.getInt("cod_alumno"));
+			   al.setNombre(rs.getString("nombre_alumno"));
+			} catch (SQLException e) {
+				// TODO insertar logs
+				e.printStackTrace();
+			}
+
+
+
+
 		
 		return al;
 	}
 
 	@Override
-	public List<Alumno> getAll() {
+	public List<Alumno> getAll() throws Exception{
 		List<Alumno> alumnos = null;
 		CallableStatement cStmt = null;
 		
-		try {
+
 			Alumno al = null;
 			cStmt = conection.prepareCall("{call getAll()}");
 			
@@ -101,14 +106,7 @@ public class AlumnoDAO implements IAlumnoDAO{
 				alumnos.add(al);
 			}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
-	   
-	   
-;
 		return alumnos;
 	}
 

@@ -26,4 +26,10 @@
     <servlet-name>ServletAlumnos</servlet-name>
     <url-pattern>/ServletAlumnos</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletAlumno</display-name>
+    <servlet-name>ServletAlumno</servlet-name>
+    <servlet-class>eus.ehu.patrondao.controller.ServletAlumno</servlet-class>
+  </servlet>
 </web-app>

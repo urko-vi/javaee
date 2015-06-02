@@ -2,15 +2,21 @@
 <%@page import="com.ipartek.formacion.helloweb.util.Constante"%>
 <%@page import="com.ipartek.formacion.helloweb.i18n.I18n"%>
 <%@page import="com.ipartek.formacion.helloweb.bean.Persona"%>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="util" uri="http://www.formacion.ipartek.com/tags/util"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+
 <%@ taglib prefix="hello" uri="http://www.formacion.ipartek.com"%>
 <%@ taglib prefix="saluda2" uri="http://www.formacion.ipartek.com"%>
 
 <c:set var="language" value="eu_ES" />
 <c:set var="language" value="<%=I18n.getBrowserLocale(response.getLocale())  %>" />
+
+
 <c:set var="localeCode" value="${pageContext.response.locale}" />
 <fmt:setLocale value="${languaje}"/>
 <fmt:setBundle basename="<%=Constante.PROPERTI_I18N %>"/>
