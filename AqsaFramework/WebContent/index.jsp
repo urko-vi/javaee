@@ -7,7 +7,7 @@
 <title>Welcome JSP</title>
 </head>
 <body>
-<h2>Welcome to Aqsa Framework</h2>
+<h2>Welcome to Home</h2>
 <a href="login.do">Login Now</a> 
 </body>
 </html>
