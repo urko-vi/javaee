@@ -24,9 +24,10 @@
 		<param-name>mapping</param-name> <!--  -->
 		<param-value>/WEB-INF/mappings.properties</param-value>
     </init-param>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>
-    <url-pattern>/action.do</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="eus.ehu.patrondao.bean.Alumno" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,5 +14,16 @@
 		<input type="password" name="pass" placeholder="Introduzca su contraseña">
 		<input type="submit" value="Enviar">
 	</form>
+	
+	<a href="listadoAlumnos.do">Pincha para obtener la lista de alumnos</a>
+	<%
+	
+	List<Alumno> datos= (List<Alumno>)request.getAttribute("datos");
+	if(datos!=null){
+		for(Alumno al: datos){
+			out.print(al.getNombre());
+		}
+	}
+	%>
 </body>
 </html>

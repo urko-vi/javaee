@@ -26,9 +26,9 @@ public class ListadoAlumnosAction implements IActionController {
 		factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL_ALUMNOS);
 		daoAmlumno = factoria.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);		
 		alumnos = daoAmlumno.getAll();
-
+		//System.out.println(alumnos.size());
 		datos.put("datos", alumnos);
-		vista = new View(datos, "index.jsp");
+		vista = new View(datos, "/index.jsp");
 		
 		return vista;
 	}

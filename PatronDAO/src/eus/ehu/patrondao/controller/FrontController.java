@@ -68,6 +68,7 @@ public class FrontController extends HttpServlet {
 		final String servletPath = request.getServletPath();
 		final String actionPath = servletPath.substring(1,
 				servletPath.lastIndexOf("."));
+		
 		final Map<String, ControllerConfig> controllers = webConfig
 				.getControllers();
 		final ControllerConfig ctrConfig = controllers.get(actionPath);
