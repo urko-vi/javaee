@@ -66,6 +66,6 @@ public final class WebConfig {
     }
 
     public Map<String, ControllerConfig> getControllers() {
-	return controllers;
+    	return controllers;
     }
 }

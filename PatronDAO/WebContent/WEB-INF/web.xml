@@ -8,7 +8,6 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
-    <welcome-file>ServletAlumnos</welcome-file>
   </welcome-file-list>
   <resource-ref>
     <description>DB Connection</description>
@@ -17,19 +16,17 @@
     <res-auth>Container</res-auth>
   </resource-ref>
   <servlet>
-    <description></description>
-    <display-name>ServletAlumnos</display-name>
-    <servlet-name>ServletAlumnos</servlet-name>
-    <servlet-class>eus.ehu.patrondao.controller.ServletAlumnos</servlet-class>
+    <description>Servlet que realiza las funciones de FrontController</description>
+    <display-name>FrontController</display-name>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>eus.ehu.patrondao.controller.FrontController</servlet-class>
+   	<init-param>
+		<param-name>mapping</param-name> <!--  -->
+		<param-value>/WEB-INF/mappings.properties</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletAlumnos</servlet-name>
-    <url-pattern>/ServletAlumnos</url-pattern>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>/action.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ServletAlumno</display-name>
-    <servlet-name>ServletAlumno</servlet-name>
-    <servlet-class>eus.ehu.patrondao.controller.ServletAlumno</servlet-class>
-  </servlet>
 </web-app>

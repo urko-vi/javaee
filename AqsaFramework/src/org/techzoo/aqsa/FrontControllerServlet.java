@@ -51,6 +51,7 @@ final public class FrontControllerServlet extends HttpServlet {
 
     private void doProcess(final HttpServletRequest request,
 	    final HttpServletResponse response) {
+    	
 	final String servletPath = request.getServletPath();
 	final String actionPath = servletPath.substring(1,
 		servletPath.lastIndexOf("."));
@@ -95,7 +96,7 @@ final public class FrontControllerServlet extends HttpServlet {
 	final Map<String, ?> model = view.getModel();
 	if (model != null) {
 	    for (Entry<String, ?> data : model.entrySet()) {
-		request.setAttribute(data.getKey(), data.getValue());
+	    	request.setAttribute(data.getKey(), data.getValue());
 	    }
 	}
     }
