@@ -16,12 +16,13 @@
 	</form>
 	
 	<a href="listadoAlumnos.do">Pincha para obtener la lista de alumnos</a>
+	<a href="hello.do">Pincha para hola</a>
 	<%
 	
 	List<Alumno> datos= (List<Alumno>)request.getAttribute("datos");
 	if(datos!=null){
 		for(Alumno al: datos){
-			out.print(al.getNombre());
+			out.print(al.getNombre()+"\n");
 		}
 	}
 	%>
