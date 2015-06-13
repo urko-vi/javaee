@@ -8,19 +8,19 @@ public class OracleConnection implements IConnection{
 
 	@Override
 	public void connect() {
-		// TODO Auto-generated method stub
+		// programar conexion Oracle
 		
 	}
 
 	@Override
 	public void disconnect() {
-		// TODO Auto-generated method stub
+		// TODO programar desconexion Oracle
 		
 	}
 
 	@Override
 	public Connection getConnection() {
-		// TODO Auto-generated method stub
+		// TODO Obtener la conexion
 		return null;
 	}
 

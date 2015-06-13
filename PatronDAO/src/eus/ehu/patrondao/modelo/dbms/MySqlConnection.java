@@ -48,7 +48,6 @@ public class MySqlConnection implements IConnection {
     
 	@Override
 	public void connect() {
-		// TODO Auto-generated method stub
 		if(connection == null){
 			try {
 				InitialContext ctx = new InitialContext();
@@ -69,7 +68,6 @@ public class MySqlConnection implements IConnection {
 	}
 	@Override
 	public void disconnect() {
-		// TODO Auto-generated method stub
 		if(connection!=null){
 			try {
 				connection.close();
@@ -83,7 +81,6 @@ public class MySqlConnection implements IConnection {
 
 	@Override
 	public Connection getConnection() {
-		// TODO Auto-generated method stub
 		return connection;
 	}
 

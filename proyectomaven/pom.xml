@@ -75,4 +75,7 @@
 		</plugins>
     <finalName>proyectomaven</finalName>
   </build>
+  <modules>
+  	<module>frontcontroller</module>
+  </modules>
 </project>

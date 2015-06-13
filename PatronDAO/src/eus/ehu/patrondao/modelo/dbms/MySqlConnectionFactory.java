@@ -33,13 +33,11 @@ public class MySqlConnectionFactory extends DAOFactory implements IConnectionFac
     }
 	@Override
 	public IConnection getIConnection() {
-		// TODO Auto-generated method stub
 		return MySqlConnection.getInstance();
 	}
 
 	@Override
 	public IAlumnoDAO getAlumnoDAO(int whichFactory) {
-		// TODO Auto-generated method stub
 		return AlumnoDAO.getInstance(whichFactory);
 	}
 

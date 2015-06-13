@@ -112,13 +112,13 @@ public class AlumnoDAO implements IAlumnoDAO{
 
 	@Override
 	public void deleteById(int id) {
-		// TODO Auto-generated method stub
+		// TODO generarDelete
 		
 	}
 
 	@Override
 	public Alumno updateAlumno(Alumno al) {
-		// TODO Auto-generated method stub
+		// TODO GenerarUpdate
 		return null;
 	}
 
