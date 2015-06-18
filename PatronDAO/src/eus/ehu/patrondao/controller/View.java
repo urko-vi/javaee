@@ -3,40 +3,46 @@ package eus.ehu.patrondao.controller;
 import java.util.Map;
 
 public class View {
-	private Map <String,?> datos;
+	private Map<String, ?> datos;
 	private String foward;
-	
-	public View(String foward) {
+
+	/**
+	 * {code}Map<String, ?> @param datos.
+	 *
+	 * @param foward
+	 */
+	public View(final Map<String, ?> datos, final String foward) {
 		super();
 		this.setFoward(foward);
-	}
-	public View(Map<String, ?> datos, String foward) {
-		super();
-		this.setFoward(foward);
-		if(datos!=null){
+		if (datos != null) {
 			this.setDatos(datos);
 		}
-		
+
 	}
-	public void clean(){
+
+	public View(final String foward) {
+		super();
+		this.setFoward(foward);
+	}
+
+	public void clean() {
 		this.datos = null;
 	}
-	public Map<String, ?> getDatos() {
-		return datos;
+
+	public final Map<String, ?> getDatos() {
+		return this.datos;
 	}
-	public void setDatos(Map<String, ?> datos) {
+
+	public final String getFoward() {
+		return this.foward;
+	}
+
+	public final void setDatos(final Map<String, ?> datos) {
 		this.datos = datos;
 	}
-	public String getFoward() {
-		return foward;
-	}
-	public void setFoward(String foward) {
+
+	public final void setFoward(final String foward) {
 		this.foward = foward;
 	}
-	
-	
-	
-	
-	
-	
+
 }

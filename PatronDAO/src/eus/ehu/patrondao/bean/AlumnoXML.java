@@ -3,33 +3,29 @@ package eus.ehu.patrondao.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-import eus.ehu.patrondao.xml.IXMLParser;
-
 @XmlRootElement(name = "alumno")
 @XmlType(propOrder = {"id", "nombre","asinaturas"})
-public class Alumno implements IXMLParser{
+public class AlumnoXML {
 	public static final int CODIGO_ALUMNO = -1;
 	private int id;
 	private String nombre;
-	private List<Asignatura>asignaturas;
+	private List<AsignaturaXML>asignaturas;
 
-	public Alumno() {
+	public AlumnoXML() {
 		super();
 		this.id = Alumno.CODIGO_ALUMNO;
 		this.setNombre("");
-		this.asignaturas = new ArrayList<Asignatura>();
+		this.asignaturas = new ArrayList<AsignaturaXML>();
 	}
 
-	public Alumno(final int id, final String nombre) {
+	public AlumnoXML(final int id, final String nombre) {
 		super();
 		this.id = id;
 		this.setNombre(nombre);
-		this.asignaturas = new ArrayList<Asignatura>();
-
 	}
 
 	@Override
@@ -62,18 +58,38 @@ public class Alumno implements IXMLParser{
 
 	}
 	@XmlElement(name = "asignaturas")
-	public List<Asignatura> getAsignaturas() {
+	public List<AsignaturaXML> getAsignaturasXML() {
 		return asignaturas;
 	}
 
-	public void setAsignaturas(List<Asignatura> asignaturas) {
+	public void setAsignaturasXML(List<AsignaturaXML> asignaturas) {
 		this.asignaturas = asignaturas;
 	}
-
-	@Override
-	public String getObjectClass() {
-		// TODO Auto-generated method stub
-		return "eus.ehu.patrondao.bean.Alumno";
-	}
 	
+	@XmlRootElement(name = "asignatura")
+	@XmlType(propOrder = {"id", "nombre"})
+	public class AsignaturaXML {
+		private int codigo;
+		private String nombre;
+		
+		public AsignaturaXML() {
+			super();
+		}
+		@XmlAttribute
+		public int getCodigo() {
+			return codigo;
+		}
+		public void setCodigo(int codigo) {
+			this.codigo = codigo;
+		}
+		@XmlElement(name = "nombre")
+		public String getNombre() {
+			return nombre;
+		}
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+		
+	}
+
 }

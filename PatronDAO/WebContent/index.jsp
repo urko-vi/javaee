@@ -14,9 +14,14 @@
 		<input type="password" name="pass" placeholder="Introduzca su contraseña">
 		<input type="submit" value="Enviar">
 	</form>
-	
-	<a href="listadoAlumnos.do">Pincha para obtener la lista de alumnos</a>
 	<a href="hello.do">Pincha para hola</a>
+	
+	
+	<a href="/PatronDAO/LoginServlet?user=urko&pass=urko">Login</a>
+	
+	<!-- 
+	<a href="listadoAlumnos.do">Pincha para obtener la lista de alumnos</a>
+	
 	<%
 	
 	List<Alumno> datos= (List<Alumno>)request.getAttribute("datos");
@@ -26,5 +31,6 @@
 		}
 	}
 	%>
+	 -->
 </body>
 </html>

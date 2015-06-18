@@ -95,7 +95,7 @@ public class FrontController extends HttpServlet {
 		
 	}
 
-	private void dispatchRequestToView(eus.ehu.patrondao.controller.View view,
+	private void dispatchRequestToView(View view,
 			WebConfig webConfig2, HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
@@ -109,7 +109,7 @@ public class FrontController extends HttpServlet {
 	}
 
 	private void prepareModelData(HttpServletRequest request,
-			eus.ehu.patrondao.controller.View view) {
+			View view) {
 		final Map<String, ?> model = view.getDatos();
 		if (model != null) {
 		    for (Entry<String, ?> data : model.entrySet()) {
