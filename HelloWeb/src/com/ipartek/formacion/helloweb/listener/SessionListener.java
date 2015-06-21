@@ -44,10 +44,10 @@ public class SessionListener implements HttpSessionListener,
     public void attributeRemoved(final HttpSessionBindingEvent se) {
 	// Logger logger = Logger.getAnonymousLogger();
 	// logger.log(Level.INFO, "Atribute Deleted" + se.getName(), se);
-	if (se.getName().equalsIgnoreCase(Constante.USER_SESSION)) {
-	    Persona usuario = (Persona) se.getValue();
-	    log.trace("usuario deslogueado: " + usuario.toString());
-	}
+		if (se.getName().equalsIgnoreCase(Constante.USER_SESSION)) {
+		    Persona usuario = (Persona) se.getValue();
+		    log.trace("usuario deslogueado: " + usuario.toString());
+		}
     }
 
     /**

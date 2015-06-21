@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import eus.ehu.patrondao.controller.config.ControllerConfig;
 import eus.ehu.patrondao.controller.config.WebConfig;
@@ -35,6 +40,8 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     private static final String MAPPING_FILE = "mapping";
+    public static boolean LOAD_ERROR = false;
+    public static final String PATH_LOG4J = "WEB-INF/conf/log4j.properties";
     private static Logger log = Logger.getLogger(FrontController.class);
     private ServletContext context = null;
     private WebConfig webConfig = null;
@@ -121,7 +128,21 @@ public class FrontController extends HttpServlet {
 		}
 		
 	}
+    private void loadLog4j(final ServletContextEvent sce) {
 
+		try {
+		    String pathReal = sce.getServletContext().getRealPath("/");
+		    PropertyConfigurator.configure(pathReal + PATH_LOG4J);
+		    // check configration, si no hay apender es que ha fallado
+		    if (null == LogManager.exists("ACCESOS")) {
+		    	LOAD_ERROR = true;
+		    }
+		    log.debug("LOG cargado");
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+
+    }
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
