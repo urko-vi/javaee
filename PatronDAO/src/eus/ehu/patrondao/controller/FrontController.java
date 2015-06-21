@@ -20,6 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+import org.apache.log4j.Logger;
+
 import eus.ehu.patrondao.controller.config.ControllerConfig;
 import eus.ehu.patrondao.controller.config.WebConfig;
 
@@ -32,7 +35,7 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     private static final String MAPPING_FILE = "mapping";
-
+    private static Logger log = Logger.getLogger(FrontController.class);
     private ServletContext context = null;
     private WebConfig webConfig = null;
 
@@ -64,7 +67,7 @@ public class FrontController extends HttpServlet {
 
 	private void doProcess(HttpServletRequest request,
 			HttpServletResponse response) {
-		
+		log.info("Se pasa");
 		final String servletPath = request.getServletPath();
 		final String actionPath = servletPath.substring(1,
 				servletPath.lastIndexOf("."));

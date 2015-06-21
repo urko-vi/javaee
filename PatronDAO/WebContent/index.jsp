@@ -14,7 +14,6 @@
 		<input type="password" name="pass" placeholder="Introduzca su contraseña">
 		<input type="submit" value="Enviar">
 	</form>
-	<a href="hello.do">Pincha para hola</a>
 	
 	
 	<a href="/PatronDAO/LoginServlet?user=urko&pass=urko">Login</a>

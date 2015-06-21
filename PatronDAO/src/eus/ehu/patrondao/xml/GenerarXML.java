@@ -27,29 +27,20 @@ public class GenerarXML implements IParserXML {
 	private void parseObjectXML(IXMLParser elemento,File archivo)   {
 		//Object.class
 		try {
+			/*
 			//igual se puede quitar
 			IXMLParser ele =  (IXMLParser) forName(elemento.getObjectClass())
 					.newInstance();
-			
-			JAXBContext context = JAXBContext.newInstance(ele.getClass());
+			*/
+			JAXBContext context = JAXBContext.newInstance(elemento.getClass());
 			Marshaller m = context.createMarshaller();
 			 m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-		     m.marshal(ele, new File(archivo.getAbsolutePath()));
+		     m.marshal(elemento, new File(archivo.getAbsolutePath()));
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        //for pretty-print XML in JAXB
- catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
        
 
         // Write to System.out for debugging
@@ -71,7 +62,7 @@ public class GenerarXML implements IParserXML {
 		return false;
 	}
 
-	public void arseXML(List<? extends IXMLParser> lista, File archivo) {
+	public void parseXML(List<IXMLParser> lista, File archivo) {
 		// TODO Auto-generated method stub
 		
 		/*
@@ -81,12 +72,6 @@ public class GenerarXML implements IParserXML {
 		for(IXMLParser ob: lista){
 			parseObjectXML(ob,archivo);
 		}
-	}
-
-	@Override
-	public void parseXML(List lista, File archivo) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

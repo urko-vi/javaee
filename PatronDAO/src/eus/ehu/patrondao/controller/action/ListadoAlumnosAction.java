@@ -12,6 +12,7 @@ import eus.ehu.patrondao.controller.IActionController;
 import eus.ehu.patrondao.controller.View;
 import eus.ehu.patrondao.modelo.DAOFactory;
 import eus.ehu.patrondao.modelo.IAlumnoDAO;
+import eus.ehu.patrondao.xml.IXMLParser;
 
 public class ListadoAlumnosAction implements IActionController {
 
@@ -21,8 +22,8 @@ public class ListadoAlumnosAction implements IActionController {
 		View vista = null;
 	    DAOFactory factoria = null;
 	    IAlumnoDAO daoAmlumno = null;
-		List<Alumno> alumnos = null;
-		Map<String,List<Alumno>> datos = new HashMap<String, List<Alumno>>();
+		List<IXMLParser> alumnos = null;
+		Map<String,List<IXMLParser>> datos = new HashMap<String, List<IXMLParser>>();
 		factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL_ALUMNOS);
 		daoAmlumno = factoria.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);		
 		alumnos = daoAmlumno.getAll();

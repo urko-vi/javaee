@@ -1,5 +1,6 @@
 package eus.ehu.patrondao.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +11,12 @@ import javax.xml.bind.annotation.XmlType;
 import eus.ehu.patrondao.xml.IXMLParser;
 
 @XmlRootElement(name = "alumno")
-@XmlType(propOrder = {"id", "nombre","asinaturas"})
-public class Alumno implements IXMLParser{
+@XmlType(propOrder = {"id", "nombre","asignaturas"})
+public class Alumno implements IXMLParser, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static final int CODIGO_ALUMNO = -1;
 	private int id;
 	private String nombre;
@@ -61,19 +66,15 @@ public class Alumno implements IXMLParser{
 		this.nombre = nombre;
 
 	}
+	
 	@XmlElement(name = "asignaturas")
 	public List<Asignatura> getAsignaturas() {
 		return asignaturas;
 	}
 
-	public void setAsignaturas(List<Asignatura> asignaturas) {
-		this.asignaturas = asignaturas;
+	public void setAsignaturas(List<? extends IXMLParser> asignaturas) {
+		this.asignaturas = (List<Asignatura>) asignaturas;
 	}
 
-	@Override
-	public String getObjectClass() {
-		// TODO Auto-generated method stub
-		return "eus.ehu.patrondao.bean.Alumno";
-	}
 	
 }

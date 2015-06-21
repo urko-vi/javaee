@@ -5,9 +5,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import eus.ehu.patrondao.xml.IXMLParser;
+
 @XmlRootElement(name = "asignatura")
-@XmlType(propOrder = {"id", "nombre"})
-public class Asignatura {
+@XmlType(propOrder = {"codigo", "nombre"})
+public class Asignatura implements IXMLParser{
 	private int codigo;
 	private String nombre;
 	

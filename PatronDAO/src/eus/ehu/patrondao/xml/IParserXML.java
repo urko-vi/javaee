@@ -5,10 +5,10 @@ import java.util.List;
 
 public interface IParserXML<T> {
 
-	// Pasar de Objeto a XML
-	public void parseXML(final List<? extends IXMLParser> lista,final File archivo);
+
 	// Pasr XML a OBjeto
 	public List<?> parseJavaObject(final File archivo);
 	// validar con Schema
 	public boolean validateXML(final File archivoSchema,final File archivoXML);
+	//void parseXML(List<IXMLParser> lista, File archivo);
 }

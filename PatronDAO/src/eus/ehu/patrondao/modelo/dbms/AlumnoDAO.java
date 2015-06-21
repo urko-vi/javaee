@@ -16,10 +16,12 @@ import java.util.List;
 
 
 
+
 import eus.ehu.patrondao.bean.Alumno;
 import eus.ehu.patrondao.modelo.DAOFactory;
 import eus.ehu.patrondao.modelo.IAlumnoDAO;
 import eus.ehu.patrondao.modelo.IConnection;
+import eus.ehu.patrondao.xml.IXMLParser;
 
 public class AlumnoDAO implements IAlumnoDAO{
 	private Connection conection;
@@ -82,8 +84,8 @@ public class AlumnoDAO implements IAlumnoDAO{
 	}
 
 	@Override
-	public List<Alumno> getAll() throws Exception{
-		List<Alumno> alumnos = null;
+	public List<IXMLParser> getAll() throws Exception{
+		List<IXMLParser> alumnos = null;
 		CallableStatement cStmt = null;
 		
 
@@ -98,7 +100,7 @@ public class AlumnoDAO implements IAlumnoDAO{
 		    //int i = cStmt.executeUpdate(); para UPDATE, INSERT; DELETE
 		    
 		    //rs = (ResultSet) callableStatement.getObject(2); PARA ORACLE
-		   alumnos = new ArrayList<Alumno>();
+		   alumnos = new ArrayList<IXMLParser>();
 			while(rs.next()){
 				al = new Alumno();
 				al.setId(rs.getInt("cod_alumno"));

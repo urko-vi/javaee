@@ -14,6 +14,7 @@ import eus.ehu.patrondao.modelo.IAlumnoDAO;
 import eus.ehu.patrondao.modelo.dbms.AlumnoDAO;
 import eus.ehu.patrondao.util.Constantes;
 import eus.ehu.patrondao.xml.GenerarXML;
+import eus.ehu.patrondao.xml.IXMLParser;
 
 public class GenerarXMLAction implements IActionController {
 
@@ -48,7 +49,7 @@ public class GenerarXMLAction implements IActionController {
 
 		File archivo = new File("");
 		IAlumnoDAO alumnoDAO = factory.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);
-		List<Alumno> alumnos;
+		List<IXMLParser> alumnos;
 		try {
 			alumnos = alumnoDAO.getAll();
 			xmlgenerator = new GenerarXML();
