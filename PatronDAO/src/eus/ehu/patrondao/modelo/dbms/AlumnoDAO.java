@@ -84,8 +84,8 @@ public class AlumnoDAO implements IAlumnoDAO{
 	}
 
 	@Override
-	public List<IXMLParser> getAll() throws Exception{
-		List<IXMLParser> alumnos = null;
+	public List<Alumno> getAll() throws Exception{
+		List<Alumno> alumnos = null;
 		CallableStatement cStmt = null;
 		
 
@@ -100,7 +100,7 @@ public class AlumnoDAO implements IAlumnoDAO{
 		    //int i = cStmt.executeUpdate(); para UPDATE, INSERT; DELETE
 		    
 		    //rs = (ResultSet) callableStatement.getObject(2); PARA ORACLE
-		   alumnos = new ArrayList<IXMLParser>();
+		   alumnos = new ArrayList<Alumno>();
 			while(rs.next()){
 				al = new Alumno();
 				al.setId(rs.getInt("cod_alumno"));

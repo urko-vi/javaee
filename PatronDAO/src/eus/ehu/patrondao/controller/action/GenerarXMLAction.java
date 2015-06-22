@@ -1,6 +1,7 @@
 package eus.ehu.patrondao.controller.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,11 +50,16 @@ public class GenerarXMLAction implements IActionController {
 
 		File archivo = new File("");
 		IAlumnoDAO alumnoDAO = factory.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);
-		List<IXMLParser> alumnos;
+		List<Alumno> alumnos = null;
+		List<IXMLParser> datos = null;
 		try {
 			alumnos = alumnoDAO.getAll();
+			datos = new ArrayList<IXMLParser>();
+			for(Alumno alum: alumnos){
+				datos.add(alum);
+			}
 			xmlgenerator = new GenerarXML();
-			xmlgenerator.parseXML(alumnos, archivo);
+			xmlgenerator.parseXML(datos, archivo);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

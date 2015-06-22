@@ -56,6 +56,7 @@ public class FrontController extends HttpServlet {
 		String controllersProps = config.getInitParameter(MAPPING_FILE);
 		mappingFile = context.getRealPath(controllersProps);
 		webConfig = new WebConfig(mappingFile);
+		//loadLog4j(context);
 	}
 
 	/**
@@ -74,6 +75,8 @@ public class FrontController extends HttpServlet {
 
 	private void doProcess(HttpServletRequest request,
 			HttpServletResponse response) {
+		
+
 		log.info("Se pasa");
 		final String servletPath = request.getServletPath();
 		final String actionPath = servletPath.substring(1,
@@ -137,9 +140,10 @@ public class FrontController extends HttpServlet {
 		    if (null == LogManager.exists("ACCESOS")) {
 		    	LOAD_ERROR = true;
 		    }
-		    log.debug("LOG cargado");
+		   // log.debug("LOG cargado");
+		   // log.
 		} catch (Exception e) {
-		    e.printStackTrace();
+		    log.error(e.getMessage());
 		}
 
     }

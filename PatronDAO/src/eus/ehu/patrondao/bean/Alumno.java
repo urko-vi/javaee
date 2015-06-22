@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 import eus.ehu.patrondao.xml.IXMLParser;
 
 @XmlRootElement(name = "alumno")
-@XmlType(propOrder = {"id", "nombre","asignatura"})
+@XmlType(propOrder = {"id", "nombre","asignaturas"})
 public class Alumno implements IXMLParser, Serializable{
 	/**
 	 * 
@@ -67,7 +67,7 @@ public class Alumno implements IXMLParser, Serializable{
 
 	}
 	
-	@XmlElement(name = "asignatura")
+	@XmlElement(name = "asignaturas")
 	public List<Asignatura> getAsignaturas() {
 		return asignaturas;
 	}

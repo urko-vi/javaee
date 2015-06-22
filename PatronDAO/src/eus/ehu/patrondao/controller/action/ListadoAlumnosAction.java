@@ -22,14 +22,14 @@ public class ListadoAlumnosAction implements IActionController {
 		View vista = null;
 	    DAOFactory factoria = null;
 	    IAlumnoDAO daoAmlumno = null;
-		List<IXMLParser> alumnos = null;
+		List<Alumno> alumnos = null;
 		
-		Map<String,List<IXMLParser>> datos = null;
+		Map<String,List<Alumno>> datos = null;
 		
 		factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL_ALUMNOS);
 		daoAmlumno = factoria.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);		
 		try {
-			datos= new HashMap<String, List<IXMLParser>>();
+			datos= new HashMap<String, List<Alumno>>();
 			alumnos = daoAmlumno.getAll();
 			datos.put("datos", alumnos);
 			vista = new View(datos, "/index.jsp");

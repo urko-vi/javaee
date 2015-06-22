@@ -14,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File archivo = new File("c:/profesores.xml");
+		File archivo = new File("c:/alumnos.xml");
 		Alumno al = new Alumno();
 		List<IXMLParser> lista = null;
 		lista = new ArrayList<IXMLParser>();

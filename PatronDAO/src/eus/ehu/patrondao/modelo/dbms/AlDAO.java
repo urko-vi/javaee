@@ -9,10 +9,10 @@ import eus.ehu.patrondao.xml.IXMLParser;
 
 public class AlDAO implements IAlumnoDAO {
 	private Alumno al;
-	private final List<IXMLParser> alumnos;
+	private final List<Alumno> alumnos;
 
 	public AlDAO() {
-		this.alumnos = new ArrayList<IXMLParser>();
+		this.alumnos = new ArrayList<Alumno>();
 		for (int i = 0; i < 5; i++) {
 			this.al = new Alumno();
 			this.al.setId(i);
@@ -33,7 +33,7 @@ public class AlDAO implements IAlumnoDAO {
 	}
 
 	@Override
-	public List<IXMLParser> getAll() throws Exception {
+	public List<Alumno> getAll() throws Exception {
 		// TODO Auto-generated method stub
 		return this.alumnos;
 	}
