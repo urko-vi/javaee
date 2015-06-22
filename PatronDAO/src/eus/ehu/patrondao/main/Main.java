@@ -18,6 +18,7 @@ public class Main {
 		Alumno al = new Alumno();
 		List<IXMLParser> lista = null;
 		lista = new ArrayList<IXMLParser>();
+		
 		List<IXMLParser> asignaturas = new ArrayList<IXMLParser>();
 		Asignatura asig = new Asignatura();
 		asignaturas.add(asig);

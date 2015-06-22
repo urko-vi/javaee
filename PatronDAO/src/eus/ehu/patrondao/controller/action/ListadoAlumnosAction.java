@@ -18,18 +18,34 @@ public class ListadoAlumnosAction implements IActionController {
 
 	@Override
 	public View execute(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+			 {
 		View vista = null;
 	    DAOFactory factoria = null;
 	    IAlumnoDAO daoAmlumno = null;
 		List<IXMLParser> alumnos = null;
-		Map<String,List<IXMLParser>> datos = new HashMap<String, List<IXMLParser>>();
+		
+		Map<String,List<IXMLParser>> datos = null;
+		
 		factoria = DAOFactory.getDAOFactory(DAOFactory.MYSQL_ALUMNOS);
 		daoAmlumno = factoria.getAlumnoDAO(DAOFactory.MYSQL_ALUMNOS);		
-		alumnos = daoAmlumno.getAll();
+		try {
+			datos= new HashMap<String, List<IXMLParser>>();
+			alumnos = daoAmlumno.getAll();
+			datos.put("datos", alumnos);
+			vista = new View(datos, "/index.jsp");
+			
+		} catch (Exception e) {
+			Map<String, String> mensaje = new HashMap<String, String>();
+			mensaje.put("mensaje", "No se han podido recibir datos");
+			//TODO logs
+			//e.printStackTrace();
+			vista = new View(mensaje, "/index.jsp");
+		}
+
 		//System.out.println(alumnos.size());
-		datos.put("datos", alumnos);
-		vista = new View(datos, "/index.jsp");
+		
+		//datos.put("mensaje", "No se puede acceder a base de datos");
+
 		
 		return vista;
 	}

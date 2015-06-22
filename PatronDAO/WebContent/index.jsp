@@ -17,7 +17,15 @@
 	
 	
 	<a href="/PatronDAO/LoginServlet?user=urko&pass=urko">Login</a>
+	<% 
+	String mensaje = (String)request.getAttribute("mensaje");
+	if(mensaje !=null){
+	%>
 	
+	
+	<%
+	}
+	%>
 	<!-- 
 	<a href="listadoAlumnos.do">Pincha para obtener la lista de alumnos</a>
 	

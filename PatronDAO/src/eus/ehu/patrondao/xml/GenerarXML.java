@@ -1,7 +1,5 @@
 package eus.ehu.patrondao.xml;
 
-import static java.lang.Class.forName;
-
 import java.io.File;
 import java.util.List;
 
@@ -10,7 +8,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
 
-import eus.ehu.patrondao.controller.IActionController;
+
 
 
 
@@ -27,11 +25,6 @@ public class GenerarXML implements IParserXML {
 	private void parseObjectXML(IXMLParser elemento,File archivo)   {
 		//Object.class
 		try {
-			/*
-			//igual se puede quitar
-			IXMLParser ele =  (IXMLParser) forName(elemento.getObjectClass())
-					.newInstance();
-			*/
 			JAXBContext context = JAXBContext.newInstance(elemento.getClass());
 			Marshaller m = context.createMarshaller();
 			 m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
